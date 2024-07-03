@@ -1,0 +1,253 @@
+.footerbtn1,
+.footerbtn2,
+.footerbtn3{
+    border-radius: 0.5rem;
+    font-weight: 600;
+    padding: 0.6rem;
+    width:8rem;
+}
+
+.footerbtn1 {
+    background-color:white;
+    border: 1.5px solid #ccc;
+    color:#707070;
+}
+
+
+.footerbtn2 {
+    background-color: white;
+    border: 1.5px solid #CF3636;
+    color: #CF3636;
+    margin-right: 1rem;
+}
+
+.footerbtn3 {
+    background-color: #17A2B8;
+    color:white;
+    border:none;
+    }
+
+.footerbtn3:hover {
+    background-color: #127787d4;
+    color: black
+}
+
+.footerbtn2:hover {
+    background-color: rgb(236, 232, 232);
+    color: black;
+}
+
+.footerbtn1:hover {
+    background-color: rgb(236, 232, 232);
+    color: black;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.checklist::-webkit-scrollbar{
+    width: 0.5rem;
+    border-radius: 0.5rem;
+    background-color:white
+}
+
+.checklist::-webkit-scrollbar-thumb {
+    background: #8DAAB9;
+    border-radius: 1rem;
+}
+
+
+
+
+.input,.select,.checkls{
+    font-size:0.8rem;
+    font-weight: 500;
+}
+.checkls{
+    padding:1rem 0rem;
+}
+
+.checklist{
+    height: 24vh;
+    overflow-y: scroll;
+    max-height: 22vh;
+}
+
+.select{
+    display: flex;
+    gap:0.9rem;
+    align-items: center;
+    width: 100%;
+}
+
+.inputbox1,.inputbox2 {
+    font-size: 0.7rem;
+    border-radius: 0.2rem;
+    border: 1px solid #4D40551A;
+    outline: none;
+    box-shadow: 0px 1px 2px 0px #4D40551A;
+}
+.inputbox1{
+        width: 95%;
+        padding: 0.6rem;
+}
+.inputbox2 {
+
+    width: 85%;
+}
+.checklistInput{
+    padding:0.6rem;
+    font-size: 0.7rem;
+    border-radius:0.6rem;
+    border: 1px solid #4D40551A;
+    outline: none;
+    margin-top: 0.6rem;
+    width: 98%;
+    padding: 0.5rem 2.5rem 0.5rem 2rem;
+    box-sizing: border-box;
+}
+.checklistItem {
+    position: relative;
+}
+
+.checkbox {
+    position: absolute;
+    left: 0.6rem;
+    top: 55%;
+    transform: translateY(-50%);
+}
+
+.priority{
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap:0.8rem;
+    padding: 1rem 0rem;
+    font-weight: 500;
+}
+.prioritybtn{
+    background-color: white;
+    font-size: 0.7rem;
+    font-weight: 500;
+    padding: 0.3rem;
+    border-radius: 0.2rem;
+    color:#767575;
+        border: 1px solid #ccc;
+}
+.prioritybtn:hover {
+    background-color: #EEECEC;
+}
+
+select:invalid {
+    color: rgb(180, 20, 20);
+}
+
+
+
+.dot1,.dot2,.dot3 {
+    height: 7px;
+    width: 7px;
+    align-items: center;
+    border-radius: 50%;
+    display: inline-block;
+}
+.dot1{
+        background-color: #ea0a0a;
+}
+.dot2{
+        background-color: #4683e6;
+}
+.dot3{
+    background-color: rgba(21, 191, 61, 0.94);
+}
+
+
+.addNewItemBtn{
+    position: sticky;
+    bottom: 0;
+    border:none;
+    width: 100%;
+    background-color:white;
+    margin-top: 1rem;
+    font-weight: 500;
+    color: #767575;
+    cursor: pointer;
+    padding: 0.4rem 0.4rem;
+    text-align: left;
+}
+.addNewItemBtn:hover,.add:hover {
+    cursor: pointer;
+    color:black;
+}
+.add{
+    font-size: 1rem; 
+    color:#767575;
+    padding-right:0.4rem;
+    }
+
+.removeItemBtn{
+    width:0.9rem;
+    position: absolute;
+    right: 0.9rem;
+    top: 60%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+.required {
+    color: red;
+    margin-left: 0.25rem;
+}
+
+.error {
+    color: red;
+    font-size: small;
+    text-align: start;
+    line-height: 3px;
+    font-weight: 500;
+
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #FFEBEB;
+    color:black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+    font-weight: 500;
+}
+
+.email {
+    flex-grow: 1;
+}
+
+.assignButton {
+        background-color: white;
+        width:5rem;
+        font-size:0.7rem ;
+        border: 1.5px solid #ccc;
+        color: #707070;
+    border-radius: 4px;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+
+.assignButton:hover {
+    background-color: rgb(236, 232, 232);
+        color: black;
+    }
+
+

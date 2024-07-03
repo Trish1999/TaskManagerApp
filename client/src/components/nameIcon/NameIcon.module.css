@@ -1,0 +1,11 @@
+.emailIcon {
+    width: 0.8rem;
+    height: 0.8rem;
+    background-color: #FFEBEB;
+    color:black;
+    font-size: 0.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}

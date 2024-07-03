@@ -1,0 +1,54 @@
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-top: 1.5rem;
+}
+
+.add ,.ok{
+    width: 14rem;
+    border-radius: 0.4rem;
+    background-color: #17A2B8;
+    color: white;
+    border: none;
+    padding: 0.4rem;
+    font-weight: 400;
+    cursor: pointer;
+}
+.okbtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add:hover,.ok:hover {
+    background-color: #127787d4;
+    color: black
+}
+
+.cancel {
+    background-color: white;
+    width: 14rem;
+    border-radius: 0.4rem;
+    border: 1.38px solid red;
+    color: red;
+    padding: 0.4rem;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.cancel:hover {
+    background-color: rgb(236, 232, 232);
+    color: black;
+}
+
+.email {
+    width:94%;
+    font-size: 0.7rem;
+    padding: 0.7rem;
+    border-radius: 0.2rem;
+    border: 1px solid #767575;
+    outline: none;
+}

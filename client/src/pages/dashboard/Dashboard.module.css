@@ -1,0 +1,126 @@
+
+.mains {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+.container {
+    background-color: white;
+    margin: 0.3rem 1rem 0.3rem 2rem;
+    width:84vw;
+    height: 95vh;;
+}
+
+.date{
+    margin-left:90%;
+    color:#707070;
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height:0;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    width:100%;
+    gap:0.5rem;
+}
+
+.logo{
+    width:0.8rem;
+    margin-right: 0.4rem;
+}
+
+.addPeople{
+    background-color: white;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color:#707070;
+    display: flex;
+    padding:0.5rem;
+    align-items: center;
+    border:none;
+    height: fit-content;
+    cursor: pointer;
+}
+
+.addPeople:hover{
+    background-color:#f0eeee;
+    height:fit-content;
+    border-radius: 0.6rem;
+}
+
+.filter{
+    border:none;
+    outline: none;
+    font-weight:500;
+    font-size: 0.8rem;
+    margin-left:77%;
+    cursor: pointer;
+}
+
+.categories{
+    display: flex;
+    height: 75vh;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    padding-bottom: 1rem;
+}
+
+.cardsContainer::-webkit-scrollbar,
+.categories::-webkit-scrollbar{
+        width: 0.7rem;
+        height: 0.7rem;
+        border-bottom-right-radius: 0.6rem;
+        background-color: #D6EAF4;
+    }
+
+.categories::-webkit-scrollbar {
+    border-radius: 0.6rem;
+}
+.cardsContainer::-webkit-scrollbar-thumb ,.categories::-webkit-scrollbar-thumb{
+    background: #8DAAB9;
+    border-radius: 1rem;
+}
+
+.category{
+    flex: 0 0 19rem;
+    margin-right: 1rem;
+    background-color: #EEF2F5;
+    margin:0rem 0.6rem;
+    padding-left: 1rem;
+    border-radius: 0.6rem;
+
+}
+
+.boxheader{
+    color:black;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0rem 0.5rem;
+}
+.icon img{
+    margin: 0.4rem;
+    width:1.1rem;  
+    align-items: center;  
+    cursor: pointer;
+}
+
+.icon .add{
+    width:0.7rem;
+    cursor:pointer;
+    padding-bottom: 0.2rem;
+}
+.icon img:hover{
+    filter:brightness(10%)
+}
+
+.cardsContainer{
+    height:92%;
+    overflow-y: scroll;
+}
+

@@ -1,0 +1,180 @@
+.card {
+    background-color: white;
+    border:none;
+    border-radius: 1rem;
+    padding: 0.9rem;
+    margin: 0.4rem 0.5rem;
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+.cardHeader {
+    align-items: center;
+    margin-bottom: 0.5rem;
+
+}
+
+.priorityDot {
+        height: 0.4rem;
+        width: 0.4rem;
+        border-radius: 50%;
+}
+.priority{
+            font-size: 0.5rem;
+            align-items: center;
+            display: flex;
+            font-weight: 500;
+            flex-direction: row;
+            text-transform: uppercase;
+            gap:0.3rem;
+
+}
+.optionIcon{
+    width:1rem;
+}
+
+.cardTitle {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.tooltip {
+    position: relative;
+    display: flex;
+    cursor: pointer;
+}
+
+ .tooltiptext {
+    font-size: 0.7rem;
+    visibility: hidden;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding:0.4rem;
+    position: absolute;
+    z-index: 1;
+    left: 30%;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.options {
+    position: relative;
+    cursor: pointer;
+    outline: none;
+}
+.optionIcon{
+    padding: 0.5rem;
+}
+.checklistheader{
+    display: flex;
+    justify-content: space-between;
+}
+.checklistheader p{
+    font-size:0.8rem;
+    font-weight:600 ;
+    margin:0.5rem 0rem
+
+}
+.checklistheader img {
+   width:1.3rem;
+   cursor: pointer;
+}
+.checklistheader img:hover {
+    width: 1.3rem;
+    filter:brightness(60%);
+}
+.checklist {
+    margin-bottom: 10px;
+}
+
+.checklistItem {
+    margin-bottom: 5px;
+    border: 1px solid #4D40551A;
+    padding: 0.3rem;
+    border-radius: 0.5rem;
+    font-size:small;
+}
+
+.collapsibleContent {
+    display: flex;
+    align-items: center;
+}
+
+
+.dropdown {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width:6rem;
+    z-index: 1;
+    background-color: white;
+    box-shadow: 0px 2px 22px 0px #7E7A7A40;
+    border-radius: 0.6rem;
+    flex-direction: column;
+    border-radius: 0.6rem;
+    padding: 0.2rem;
+}
+
+.dropdown a {
+    display: block;
+    color: black;
+    width: 100%;
+    padding: 0.4rem 0.5rem 0.4rem 1rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.dropdown a:hover {
+    background-color: #ddd;
+    width:75%;
+    border-radius:0.6rem ;
+
+}
+.footer{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.footerbtn,.duedate{
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 0.5rem;
+    padding: 0.4rem;
+    width:fit-content;
+    border:none;
+    background-color: #EEECEC;
+    color:#767575;
+    margin-left:0.2rem;
+   
+}
+.duedate1{
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 0.5rem;
+    padding: 0.4rem;
+    width:fit-content;
+    border:none;
+    background-color:rgb(223, 63, 63);
+    color:white;
+    margin-left:0.2rem;
+   
+}
+.footerbtn:hover{
+    background-color: #cfcdcd;
+    color:black;
+    cursor: pointer;
+}

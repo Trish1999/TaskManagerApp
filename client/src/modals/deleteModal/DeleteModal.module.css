@@ -1,0 +1,40 @@
+.container{
+    text-align: center;
+}
+.btn{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.delete {
+    width: 12rem;
+    border-radius: 0.4rem;
+    background-color: #17A2B8;
+    color: white;
+    border: none;
+    padding: 0.4rem;
+    font-weight: 400;
+    outline:none;
+}
+
+.delete:hover {
+    background-color: #127787d4;
+    color: black;
+    outline: none;
+}
+
+.cancel {
+    width: 12rem;
+    border-radius: 0.4rem;
+    border: 1.38px solid red;
+    color: red;
+    padding: 0.4rem;
+    font-weight: 400;
+    margin: 1rem 0 1rem 0;
+    background-color: white;
+}
+
+.cancel:hover {
+    background-color: rgb(236, 232, 232);
+    color: black;
+}

@@ -1,0 +1,73 @@
+.mains {
+    display: flex;
+}
+
+.container {
+    margin-top: 0.3rem;
+    margin-left: 2rem;
+}
+.mainContainer {
+    display: flex;
+    flex-direction: row;
+}
+.mainContainer form {
+    margin-top: 4rem;
+}
+
+.inputContainer {
+    position: relative;
+    width: 20rem;
+    margin-bottom: 1rem;
+    border: 1.38px solid #D0D0D0;
+    border-radius: 8px;
+    box-sizing: border-box;
+    padding-left: 7%;
+}
+
+.inputbox {
+    padding: 8px 8px 8px 8px;
+    width: 90%;
+    border: none;
+    outline: none;
+    font-size: 0.8rem;
+
+}
+
+.inputBox:focus {
+    outline: none;
+}
+
+.icon {
+    position: absolute;
+    top: 5%;
+    left: 2%;
+    width: 20px;
+    height: 25px;
+    pointer-events: none;
+}
+
+.viewIcon {
+    position: absolute;
+    top: 10%;
+    right: 10px;
+    width: 22px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.update {
+    width: 20rem;
+    border-radius: 1.5rem;
+    background-color: #17A2B8;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    font-size:small;
+    margin: 1.3rem 0 1rem 0;
+    cursor: pointer;
+}
+
+.update:hover {
+    background-color: #127787d4;
+    color: black
+}

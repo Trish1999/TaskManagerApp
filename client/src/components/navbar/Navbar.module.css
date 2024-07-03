@@ -1,0 +1,25 @@
+.sidebarStyle{
+    height: 100vh;
+}
+.menuContainer {
+    height:75%;
+}
+
+.menuItemStyle,.logoutStyle{
+    color: black;
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+.sidebarheader{
+    text-align: center;
+    padding: 1.5rem 1rem;
+}
+
+.icons{
+    position:absolute;
+    margin-left: 23%;
+    width:1rem
+}
+
+

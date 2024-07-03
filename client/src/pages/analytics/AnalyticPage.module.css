@@ -1,0 +1,40 @@
+.mains{
+    display: flex;
+}
+.container{
+    margin-top: 0.3rem;
+    margin-left:2rem;
+}
+.boxes{
+    display:flex;
+    margin-top: 3rem;
+}
+.box{
+    width:20rem;
+    height:11rem;
+    background-color: #F9FCFF;
+    padding:0em 2em 1em 1em;
+    border-radius: 0.7rem;
+    margin-right: 1rem;
+}
+.box li {
+    color:#90C4CC;
+    font-size: 0.8rem;
+}
+
+.box li span {
+    color: black;
+}
+
+.boxstyle{
+    display: flex;
+    justify-content:space-between;
+}
+
+.text{
+    font-weight: 400;
+}
+
+.number{
+    font-weight: 600;
+}
