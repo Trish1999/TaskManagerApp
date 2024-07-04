@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Navigate } from "react-router-dom";
 
-const backendUrl = ` https://task-manager-appvercel-phe0gziax-trish1999s-projects.vercel.app/api/v1/task`;
+const backendUrl = ` http://task-manager-appvercelapp-trish1999s-projects.vercel.app/api/v1/task`;
 
 export const createTask = async (postPayload) => {
     try {
@@ -22,16 +22,16 @@ export const createTask = async (postPayload) => {
 export const getTaskDetailsById = async (taskId) => {
     try {
         const reqUrl = `${backendUrl}/task-details/${taskId}`;
-        const token = localStorage.getItem("token");
-        axios.defaults.headers.common["Authorization"] = token;
         const response = await axios.get(reqUrl);
+    console.log(response)
+        
         return response.data;
     } catch (error) {
         console.log(error);
     }
 };
 
-export const updateAssignee = async (taskId) => {
+export const updateAssignee = async ({taskId}) => {
     try {
         const reqUrl = `${backendUrl}/update/assignee/${taskId}`;
         const response = await axios.put(reqUrl);
