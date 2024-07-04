@@ -34,24 +34,26 @@ function RegisterPage() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const newErrors = {};
-        if (!formData.name) newErrors.name = "Name is required";        
+        if (!formData.name) newErrors.name = "Name is required";
         if (!formData.email) newErrors.email = "Email is required";
         if (!formData.password) newErrors.password = "Password is required";
         if (!formData.confpassword) newErrors.confpassword = "Confirm password is required";
         if (formData.confpassword && formData.confpassword && formData.password !== formData.confpassword) newErrors.confpassword = "Password and confirm password is not matching";
             
         if (Object.keys(newErrors).length > 0) {
-        setErrors(newErrors);
+            setErrors(newErrors);
         }
         else {
             const result = await registerUser(formData);
-            console.log(result);
-        if (result) {
-            navigate("/login");
-            toast.success(result);
+            if (result) {
+                toast.success("You are registered successfully", {
+                    onClose: () => {
+                        navigate("/login");
+                    },
+                });
             }
-        }
-    };
+        };
+    }
 
     function togglePasswordVisibility(){
         setShowPassword(showPassword ? false : true);
@@ -64,7 +66,7 @@ function RegisterPage() {
     return (
         <>
             <ToastContainer
-            position="top-center"
+            position="top-right"
             autoClose={500}
             />
             <div className={styles.mainContainer}>

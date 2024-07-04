@@ -41,8 +41,11 @@ function LoginPage() {
         } else {
         const result = await loginUser(formData);
             if (result) {
-            navigate("/")
-            toast.success("Successfully loggedin "); 
+                toast.success("Successfully loggedin ", {
+                    onClose: () => {
+                        navigate("/");
+                    },
+                });
             }
         }
     };

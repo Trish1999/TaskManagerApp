@@ -8,17 +8,26 @@ import styles from "../addEmailModal/AddEmailModal.module.css"
 import ConfermationModal from './ConfermationModal';
 
 function AddEmailModal(props) {
-  const { close, open } = props;
+  const { close, open ,userData} = props;
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [showConfermationModal, setShowConfermationModal] = useState(false)
   
+    const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
     if (email === '') {
       setError('email is required');
-    } else {
+    }
+    else if (!validateEmail(email)) {
+      setError('Invalid email format');
+    }
+      else {
       setError('');
       setShowConfermationModal(true);
     }
@@ -61,6 +70,7 @@ function AddEmailModal(props) {
               open={() => setShowConfermationModal(true)}
         email={email}
         close1={close}
+        userData={userData}
         />
       }
     </div>

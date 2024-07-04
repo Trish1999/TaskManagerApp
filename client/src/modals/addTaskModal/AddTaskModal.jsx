@@ -282,10 +282,9 @@ function AddTaskModal(props) {
                             <div>
                                 <button
                                     className={styles.footerbtn2}
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        close();
-                                    }}
+                                    onClick={editable ? editClose :
+                                        close
+                                    }
                                 >
                                     Cancel
                                 </button>

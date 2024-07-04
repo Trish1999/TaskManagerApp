@@ -9,17 +9,27 @@ import styles from "../addEmailModal/AddEmailModal.module.css"
 toast.configure;
 
 function ConfermationModal(props) {
-    const { close, open,email,close1} = props;
-    
+    const { close, open,email,close1,userData} = props;
+      
   const handleSubmit = async () => {
     const adminEmail = localStorage.getItem("email");
     const userId = localStorage.getItem("userId");
-  
-    if (email === adminEmail) {
+    const registeredEmail = userData.map((i) => i.regEmail)
+    
+      if (registeredEmail.includes(email)) {
+      toast.error("user allready added", {
+        onClose: () => {
+          close();
+          close1();
+        },
+      });
+    } 
+    else if (email === adminEmail) {
       toast.error("You cannot add yourself", {
         onClose: () => {
           close();
           close1();
+          
         },
       });
     } else {
@@ -28,7 +38,8 @@ function ConfermationModal(props) {
         toast.success("Successfully added", {
         onClose: () => {
           close();
-          close1();
+            close1();
+            window.location.reload();
         },
       });
       }

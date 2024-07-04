@@ -115,9 +115,10 @@ function Card(props) {
         ))}
       </div>
       {category==="backlog" && (
-        <div className={styles.footer}>
-          { FormatDate3(dueDate) ?
-            <button className={styles.duedate} >{FormatDate2(dueDate)}</button> :<button className={styles.duedate1} >{FormatDate2(dueDate)}</button> 
+        <div className={(dueDate) ? `${styles.footer}` : `${styles.footer2}`}>
+          {
+            dueDate ?
+              <button className={FormatDate3(dueDate) ? `${styles.duedate}` : `${styles.duedate1}`}> {FormatDate2(dueDate)}</button> : ""
             }
           <div>
             <button className={styles.footerbtn} onClick={()=>updateCategory(id,"inProgress")}>PROGRESS</button>
@@ -127,9 +128,9 @@ function Card(props) {
         </div>
       )}
            {category==="todo" && (
-        <div className={styles.footer}>
-            { FormatDate3(dueDate) ?
-            <button className={styles.duedate} >{FormatDate2(dueDate)}</button> :<button className={styles.duedate1} >{FormatDate2(dueDate)}</button> 
+        <div className={(dueDate) ? `${styles.footer}` : `${styles.footer2}`}>
+          {dueDate ?
+            <button className={FormatDate3(dueDate) ? `${styles.duedate}` : `${styles.duedate1}`}> {FormatDate2(dueDate)}</button> : ""
             }
           <div>
             <button className={styles.footerbtn} onClick={()=>updateCategory(id, "backlog")}>BACKLOG</button>
@@ -139,9 +140,9 @@ function Card(props) {
         </div>
       )}
       {category==="inProgress" && (
-        <div className={styles.footer}>
-          { FormatDate3(dueDate) ?
-            <button className={styles.duedate} >{FormatDate2(dueDate)}</button> :<button className={styles.duedate1} >{FormatDate2(dueDate)}</button> 
+        <div className={(dueDate) ? `${styles.footer}` : `${styles.footer2}`}>
+          {dueDate ?
+            <button className={FormatDate3(dueDate) ? `${styles.duedate}` : `${styles.duedate1}`}> {FormatDate2(dueDate)}</button> : ""
             }
           <div>
             <button className={styles.footerbtn} onClick={()=>updateCategory(id, "backlog")}>BACKLOG</button>
@@ -151,8 +152,9 @@ function Card(props) {
         </div>
       )}
            {category==="done" && (
-        <div className={styles.footer}>
-          <button className={styles.duedate} style={{backgroundColor:'#63C05B' ,color:"white"}}>{FormatDate2(dueDate)}</button>
+        <div className={(dueDate) ? `${styles.footer}` : `${styles.footer2}`}>
+          {dueDate ?
+            <button className={styles.duedate} style={{ backgroundColor: '#63C05B', color: "white" }}>{FormatDate2(dueDate)}</button> : ""}
           <div>
             <button className={styles.footerbtn} onClick={()=>updateCategory(id, "backlog")}>BACKLOG</button>
             <button type="submit" className={styles.footerbtn} onClick={()=>updateCategory(id, "todo")}>TO-DO</button>

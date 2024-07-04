@@ -166,6 +166,7 @@ return (
       <AddEmailModal
         close={() => setShowAddEmailModal(false)}
         open={() => setShowAddEmailModal(true)}
+        userData={userData.registeredEmail || []}
       />
     )}
 
