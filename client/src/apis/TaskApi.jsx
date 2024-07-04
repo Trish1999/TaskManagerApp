@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Navigate } from "react-router-dom";
 
-const backendUrl = ` http://task-manager-appvercelapp-trish1999s-projects.vercel.app/api/v1/task`;
+const backendUrl = ` https://task-manager-appvercelapp-trish1999s-projects.vercel.app/api/v1/task`;
 
 export const createTask = async (postPayload) => {
     try {
