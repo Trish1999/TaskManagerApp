@@ -14,7 +14,7 @@ mongoose
 
 const CorsRules = {
   origin:
-    "https://task-manager-app-frontendvercel-n53i2fano-trish1999s-projects.vercel.app",
+    "https://task-manager-app-frontendvercelcom-trish1999s-projects.vercel.app/login",
   methods: "GET, POST, PUT, DELETE",
   allowedHeaders:
     "Origin, X-Requested-With, Content-Type, Accept, Authorization",
