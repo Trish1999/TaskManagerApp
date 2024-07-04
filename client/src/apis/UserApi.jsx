@@ -1,7 +1,7 @@
 import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
 
-const backendUrl = ` http://localhost:3000/api/v1/user`;
+const backendUrl = `https://task-manager-appvercel-phe0gziax-trish1999s-projects.vercel.app/api/v1/user`;
 
 export const registerUser = async ({ name,email, password }) => {
     try {
