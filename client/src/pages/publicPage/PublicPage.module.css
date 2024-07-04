@@ -1,0 +1,125 @@
+.header {
+    padding: 1rem;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    border: 1.38px solid #D0D0D0;
+    width: 40%;
+    margin: 4rem 30rem;
+    height: fit-content;
+    padding: 1rem;
+    flex-direction: column;
+    font-size: small;
+    overflow: hidden;
+}
+
+.priorityDot {
+    height: 0.6rem;
+    width: 0.6rem;
+    border-radius: 50%;
+}
+
+.priority {
+    font-size: 0.5rem;
+    align-items: center;
+    display: flex;
+    font-weight: 500;
+    flex-direction: row;
+    text-transform: uppercase;
+    gap: 0.4rem;
+    padding: 1.5rem 1rem 0rem 1rem;
+}
+
+.cardTitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 1rem 1rem;
+    text-transform: capitalize;
+}
+
+
+.checklistheader p,
+.footer {
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 1rem 0rem 0rem 1rem;
+}
+
+.checklistItem {
+    margin: 1rem 0rem 0rem 1rem;
+    border: 1px solid #4D40551A;
+    padding: 0.4rem;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    margin: 0.8rem;
+}
+
+.checklist::-webkit-scrollbar {
+    width: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: white
+}
+
+.checklist::-webkit-scrollbar-thumb {
+    background: #8DAAB9;
+    border-radius: 1rem;
+}
+
+.checklist {
+    min-height: fit-content;
+    overflow-y: scroll;
+    max-height: 36vh;
+}
+
+.duedate {
+    border-radius: 0.3rem;
+    font-weight: 600;
+    font-size: 0.7rem;
+    padding: 0.4rem;
+    width: fit-content;
+    border: none;
+    background-color: rgb(223, 63, 63);
+    color: white;
+    margin-left: 0.4rem;
+
+}
+
+@media (min-width: 300px) and (max-width: 780px) {
+    .header {
+        margin: 1rem;
+        width: 75vw;
+        height: 4vh;
+    }
+
+    .card {
+        display: flex;
+        justify-content: center;
+        border: 1.38px solid #D0D0D0;
+        width: 84vw;
+        margin: 0rem 2rem;
+        height: fit-content;
+        padding: 0rem;
+        flex-direction: column;
+        font-size: small;
+        overflow: hidden;
+        border-radius: 0.7rem;
+    }
+
+    .checklist {
+        min-height: fit-content;
+        overflow-y: scroll;
+        max-height: 44vh;
+    }
+
+    .duedate {
+        margin-bottom: 3rem;
+    }
+
+    .checklistheader p {
+        font-size: 0.9rem;
+        font-weight: 500;
+        padding: 0rem 0rem 0rem 1rem;
+    }
+}
