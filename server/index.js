@@ -13,11 +13,13 @@ mongoose
     .catch((error) => console.log("DB failed to connect", error))
 
 const CorsRules = {
-  origin: "*",
+  origin:
+    "https://task-manager-app-frontendvercel-n53i2fano-trish1999s-projects.vercel.app",
   methods: "GET, POST, PUT, DELETE",
-  allowedHeaders: "Content-Type, Authorization",
+  allowedHeaders:
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization",
   optionsSuccessStatus: 200,
-  cridentials:true
+  cridentials: true,
 };
 app.use(cors(CorsRules));
 
