@@ -137,8 +137,7 @@ function AddTaskModal(props) {
             <div className={styles.icon}>{(data.label).slice(0, 2).toUpperCase()}</div>
         <div className={styles.email}>{data.label}</div>
         <button         
-          onClick={(e) => {
-            e.stopPropagation();
+                onClick={(e) => {
             setFormData({ ...formData, assignedTo: data.value });
           }}
           className={styles.assignButton}

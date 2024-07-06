@@ -226,14 +226,11 @@ const getAllTasks = async (req, res, next) => {
 };
 
 module.exports = {
-    createTask,
-    deleteTask,
-    getTaskDetailsById,
-    updateAssignee,
-    // updateCorrectAttempt,
-    // updateIncorrectAttempt,
-    // updateOptionChoosen,
-    updateTaskDetailsById,
-    updateCategoryById,
-    getAllTasks,
+  createTask,
+  deleteTask,
+  getTaskDetailsById,
+  updateAssignee,
+  updateTaskDetailsById,
+  updateCategoryById,
+  getAllTasks,
 };

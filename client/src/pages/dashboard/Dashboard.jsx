@@ -15,7 +15,8 @@ import Option from '../../assets/Group 544.svg'
 import AddEmailModal from '../../modals/addEmailModal/AddEmailModal';
 import { getTaskDetailsById, getAllTasks } from '../../apis/TaskApi';
 import { getUserDetailsById } from '../../apis/UserApi';
- 
+import { isToday, isThisWeek, isThisMonth, parseISO, subWeeks, subMonths, format } from 'date-fns';
+
 function Dashboard() {
   const [filter, setFilter] = useState();
   const [showTaskModal, setShowTaskModal] = useState(false);
@@ -29,10 +30,10 @@ function Dashboard() {
       inProgress: true,
       done: true
   });
+
   const date = new Date();
   const userName = localStorage.getItem('name');
-  const userId=localStorage.getItem('userId');
-     console.log(tasks)
+  const userId = localStorage.getItem('userId');
   useEffect(() => {
     fetchAllTasks();
   }, []);
@@ -41,9 +42,12 @@ function Dashboard() {
     fetchUserData();
   }, [userId]);
         
-       const fetchAllTasks = async () => {
-       const result = await getAllTasks();
-        setTasks(result?.data || 0)
+  const fetchAllTasks = async () => {
+    const result = await getAllTasks();
+    if (result === "Invalid token!") {
+      toast("session expired please login again")
+    }
+    setTasks(result?.data || 0);
   };
 
          const fetchUserData = async () => {
@@ -58,15 +62,34 @@ function Dashboard() {
       [category]: !prevState[category],
     }));
   };
-  
 
-  const backlogCards =tasks.filter(task=>task.category==="backlog")
+  const filterTasks = (tasks, filter) => {
+    const today = new Date();
+    return tasks.filter(task => {
+      const createdAt = parseISO(task.createdAt);
+      if (filter === 'today') {
+        return isToday(createdAt);
+      } else if (filter === 'week') {
+        return createdAt > subWeeks(today, 1);
+      } else if (filter === 'month') {
+        return createdAt > subMonths(today, 1);
+      } else {
+        return createdAt > subWeeks(today, 1);
+      }
+    });
+  };
 
-  const todoCards =tasks.filter(task=>task.category==="todo")
 
-  const inProgressCards = tasks.filter(task=>task.category==="inProgress")
+  const filteredTasks = Array.isArray(tasks) ? filterTasks(tasks, filter) : [];
 
-  const doneCards = tasks.filter(task=>task.category==="done")
+
+  const backlogCards = filteredTasks.filter(task => task.category === "backlog")
+
+  const todoCards = filteredTasks.filter(task => task.category === "todo")
+
+  const inProgressCards = filteredTasks.filter(task => task.category === "inProgress")
+
+  const doneCards = filteredTasks.filter(task => task.category === "done")
 
 
    const handleFilterChange = (event) => {
@@ -75,6 +98,10 @@ function Dashboard() {
   
 return (
   <div>
+    <ToastContainer
+      position="top-right"
+      autoClose={500}
+    />
     <div className={styles.mains}>
       <div>
         <Navbar />
