@@ -125,36 +125,50 @@ const getUserDetailsById = async (req, res) => {
 const updateUserDetailsById = async (req, res) => {
   try {
     const userId = req.params.userId;
-
-    const userDetails = await User.findOne({ _id: userId });
+    const userDetails = await User.findById({ _id: userId });
 
     if (!userDetails) {
       return res.status(401).json({ errorMessage: "Invalid credentials" });
     }
-    const { updatedName, updatedEmail, oldPassword, newPassword } = req.body;
-
-    const passwordMatch = await bcrypt.compare(
+    const {
+      updatedName,
+      updatedEmail,
       oldPassword,
-      userDetails.password
-    );
-    if (!passwordMatch) {
-      return res
-        .status(401)
-        .json({ errorMessage: "Wrong password please check" });
-    }
+      newPassword,
+      updatePassword,
+    } = req.body;
 
-    const hashedNewPassword = await bcrypt.hash(newPassword, 10);
-
-    await User.updateOne(
-      { _id: userId },
-      {
-        $set: {
-          name: updatedName,
-          email: updatedEmail,
-          password: hashedNewPassword,
-        },
+    if (updatePassword === "true") {
+      const passwordMatch = await bcrypt.compare(
+        oldPassword,
+        userDetails.password
+      );
+      if (!passwordMatch) {
+        return res
+          .status(401)
+          .json({ errorMessage: "Wrong password please check" });
       }
-    );
+      const hashedNewPassword = await bcrypt.hash(newPassword, 10);
+
+      await User.findOneAndUpdate(
+        { _id: userId },
+        {
+          $set: {
+            password: hashedNewPassword,
+          },
+        }
+      );
+    } else {
+      await User.findOneAndUpdate(
+        { _id: userId },
+        {
+          $set: {
+            name: updatedName,
+            email: updatedEmail,
+          },
+        }
+      );
+    }
 
     res.json({ message: "UserData updated successfully" });
   } catch (error) {

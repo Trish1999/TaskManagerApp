@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 
 import styles from '../settings/Settings.module.css';
 import Navbar from '../../components/navbar/Navbar';
@@ -18,8 +19,10 @@ function Settings() {
   const [updatedEmail, setUpdatedEmail] = useState(localStorage.getItem('email') || '');
   const [oldPassword, setOldPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
-    const userId = localStorage.getItem('userId')
-        ;
+  const userId = localStorage.getItem('userId');
+  let updatePassword;
+  const navigate = useNavigate();
+
   const handleNameChange = (e) => {
     setUpdatedName(e.target.value);
   };
@@ -44,24 +47,68 @@ function Settings() {
     setShowNewPassword(!showNewPassword);
   };
 
-  const handleSubmit = async() => {
-      if (oldPassword !== newPassword) {
-          toast.error("password not matching")
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const originalName = localStorage.getItem('name');
+    const originalEmail = localStorage.getItem('email');
+
+    const isFieldUpdated = (original, updated) => original !== updated;
+
+    const nameUpdated = isFieldUpdated(originalName, updatedName);
+    const emailUpdated = isFieldUpdated(originalEmail, updatedEmail);
+    const passwordUpdated = !!oldPassword || !!newPassword;
+    console.log(nameUpdated, emailUpdated, passwordUpdated);
+
+    const updatedFieldsCount = [nameUpdated, emailUpdated, passwordUpdated].filter(Boolean).length;
+
+    let newErrors = {};
+
+    if (!nameUpdated && !emailUpdated && !oldPassword && !newPassword) {
+      newErrors = "Please update at least one field.";
+    } else if (updatedFieldsCount !== 1) {
+      newErrors = "Please update only one field at a time.";
+    } else if ((oldPassword && !newPassword) || (!oldPassword && newPassword)) {
+      newErrors = "Both old and new passwords are required to update the password.";
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      toast.error(newErrors);
+      return;
+    }
+
+    try {
+      if (!oldPassword && !newPassword) {
+        updatePassword = "false";
+        const result = await updateUserDetailsById(userId, updatedName, updatedEmail, "", "", updatePassword);
+        if (result) {
+          toast.success("Successfully updated ");
+        } else {
+          toast.error("Failed to update");
+        }
       } else {
-          const result = await updateUserDetailsById(userId, updatedName,
-              updatedEmail,
-              oldPassword,
-              newPassword);
-          if (result) {
-              toast.success("Successfully updated")
-          }
+        updatePassword = "true"
+        const result = await updateUserDetailsById(userId, updatedName, updatedEmail, oldPassword, newPassword, updatePassword);
+        if (result) {
+          toast.success("Successfully updated please login again", {
+            onClose: () => {
+              navigate("/login");
+            },
+          })
+        } else {
+          toast.error("Failed to update");
+        }
       }
+    } catch (error) {
+      console.log(error);
+      toast.error("An error occurred while updating");
+    }
   };
 
   return (
     <div>
       <div className={styles.mains}>
-        <ToastContainer position="top-right" autoClose={500} />
+        <ToastContainer position="top-right" autoClose={1000} />
         <Navbar />
         <div className={styles.container}>
           <h3>Settings</h3>

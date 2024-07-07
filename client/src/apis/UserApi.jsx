@@ -68,14 +68,16 @@ export const getUserDetailsById = async (userId) => {
 export const updateUserDetailsById = async ( userId, updatedName,
     updatedEmail,
     oldPassword,
-    newPassword ) => {
+    newPassword, updatePassword) => {
     try {
-        const reqUrl = `${backendUrl}/user-details/update/${userId}`;
+        const reqUrl = `${backendUrl}/update/${userId}`;
         const response = await axios.put(reqUrl, {
+            userId,
             updatedName,
           updatedEmail,
           oldPassword,
-            newPassword
+            newPassword,
+            updatePassword
         });
         return response.data;
     } catch (error) {

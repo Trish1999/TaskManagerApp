@@ -32,8 +32,9 @@ function Dashboard() {
   });
 
   const date = new Date();
-  const userName = localStorage.getItem('name');
-  const userId = localStorage.getItem('userId');
+  const userName = userData.name;
+  const userId = localStorage.getItem("userId");
+
   useEffect(() => {
     fetchAllTasks();
   }, []);
@@ -50,9 +51,9 @@ function Dashboard() {
     setTasks(result?.data || 0);
   };
 
-         const fetchUserData = async () => {
-       const result = await getUserDetailsById(userId);
-           setUserData(result?.data || 0)
+  const fetchUserData = async () => {
+    const result = await getUserDetailsById(userId);
+    setUserData(result?.data || 0)
   };
 
   
