@@ -2,6 +2,7 @@ import React, { useState,useEffect } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 toast.configure;
+import { useNavigate } from 'react-router-dom';
 
 import styles from "../dashboard/Dashboard.module.css";
 import Navbar from '../../components/navbar/Navbar';
@@ -16,6 +17,7 @@ import AddEmailModal from '../../modals/addEmailModal/AddEmailModal';
 import { getAssignedTask, getAllTasks } from '../../apis/TaskApi';
 import { getUserDetailsById } from '../../apis/UserApi';
 import { isToday, isThisWeek, isThisMonth, parseISO, subWeeks, subMonths, format } from 'date-fns';
+import { Navigate } from 'react-router-dom';
 
 function Dashboard() {
   const [filter, setFilter] = useState();
@@ -24,6 +26,7 @@ function Dashboard() {
   const [tasks, setTasks] = useState([]);
   const [userData, setUserData] = useState({});
   const [assignedData, setAssignedData] = useState([]);
+  const navigate = useNavigate();
   
   const [collapsedStates, setCollapsedStates] = useState({
       backlog: true,
@@ -52,7 +55,7 @@ function Dashboard() {
   const fetchAllTasks = async () => {
     const result = await getAllTasks();
     if (result === "Invalid token!") {
-      toast("session expired please login again")
+      navigate("/login")
     }
     setTasks(result?.data || 0);
   };
