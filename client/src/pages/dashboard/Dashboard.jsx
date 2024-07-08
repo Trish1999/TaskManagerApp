@@ -145,7 +145,7 @@ return (
               </div>
             </div>
             <div className={styles.cardsContainer}>
-              {backlogCards.map((card, index) => (<Card key={index} id={card._id} title={card.title} priority={card.priority} assignedTo={card.assignedTo} category={card.category} checklistItems={card.checklistItems} dueDate={card.dueDate} collapsed={collapsedStates.backlog} userData={userData}refresh={fetchAllTasks}
+              {backlogCards.map((card, index) => (<Card key={index} id={card._id} title={card.title} priority={card.priority} assignedTo={card.assignedTo} category={card.category} checklistItems={card.checklistItems} dueDate={card.dueDate} collapsed={collapsedStates.backlog} userData={userData} refUserId={card.refUserId} userId={userId} refresh={fetchAllTasks}
     />
               ))}
             </div>
@@ -161,7 +161,7 @@ return (
               </div>
             </div>
             <div className={styles.cardsContainer}>
-              {todoCards.map((card, index) => (<Card key={index} id={card._id} title={card.title} priority={card.priority} assignedTo={card.assignedTo} category={card.category} checklistItems={card.checklistItems} dueDate={card.dueDate} collapsed={collapsedStates.todo} userData={userData} refresh={fetchAllTasks} />
+              {todoCards.map((card, index) => (<Card key={index} id={card._id} title={card.title} priority={card.priority} assignedTo={card.assignedTo} category={card.category} checklistItems={card.checklistItems} dueDate={card.dueDate} collapsed={collapsedStates.todo} userData={userData} refUserId={card.refUserId} userId={userId} refresh={fetchAllTasks} />
               ))}
             </div>
             
@@ -174,7 +174,7 @@ return (
               </div>
             </div>
             <div className={styles.cardsContainer}>
-              {inProgressCards.map((card, index) => (<Card key={index} id={card._id} title={card.title} priority={card.priority} assignedTo={card.assignedTo} category={card.category} checklistItems={card.checklistItems} dueDate={card.dueDate} collapsed={collapsedStates.inProgress} userData={userData}refresh={fetchAllTasks} />
+              {inProgressCards.map((card, index) => (<Card key={index} id={card._id} title={card.title} priority={card.priority} assignedTo={card.assignedTo} category={card.category} checklistItems={card.checklistItems} dueDate={card.dueDate} collapsed={collapsedStates.inProgress} userData={userData} refUserId={card.refUserId} userId={userId} refresh={fetchAllTasks} />
               ))}
             </div>
           </div>
@@ -187,7 +187,7 @@ return (
             </div>
             
             <div className={styles.cardsContainer}>
-              {doneCards.map((card, index) => (<Card key={index} id={card._id} title={card.title} priority={card.priority} assignedTo={card.assignedTo} category={card.category} checklistItems={card.checklistItems} dueDate={card.dueDate} collapsed={collapsedStates.done}  userData={userData} refresh={fetchAllTasks}/>
+              {doneCards.map((card, index) => (<Card key={index} id={card._id} title={card.title} priority={card.priority} assignedTo={card.assignedTo} category={card.category} checklistItems={card.checklistItems} dueDate={card.dueDate} collapsed={collapsedStates.done} userData={userData} refUserId={card.refUserId} userId={userId} refresh={fetchAllTasks} />
               ))}
             </div>
           </div>

@@ -15,7 +15,8 @@ import "../../modals/Custom-styling.css";
 import Delete from "../../assets/Delete.svg"
 
 function AddTaskModal(props) {
-    const { close, open, userData, refresh, editable, taskId, title, editClose, editOpen, category, priority, checklistItems, assignedTo, dueDate } = props;
+    const { close, open, userData, refresh, editable, taskId, title, editClose, editOpen, category, refUserId, priority, checklistItems, assignedTo, dueDate, userId
+    } = props;
     const [formData, setFormData] = useState({
         title: editable ? title :"",
         priority: editable ? priority :"",
@@ -127,6 +128,7 @@ function AddTaskModal(props) {
         </button>
     ));
 
+    const IsAdmin = (userId === refUserId ? true : false);
 
   const customOption = ({ data, innerRef, innerProps }) => {
     return (
@@ -208,25 +210,25 @@ function AddTaskModal(props) {
                             </button>
                         </div>
                         {errors.priority && <span className={styles.error}>{errors.priority}</span>}
-
-                                   <div className={styles.select}>
-              <label>Assign To</label>
-                             <Select
-                                className={styles.inputbox2}
-                                value={options.find(
-                                    (option) => option.value === formData.assignedTo
-                                )}
-                                options={options}
-                                components={{ Option: customOption }}
-                                placeholder="Add an Assignee"
-                                onChange={(selectedOption) => { 
-                                    setFormData({ ...formData, assignedTo: selectedOption.value });
-                                    if (errors.assignedTo) {
-                                        setErrors({ ...errors, assignedTo: "" });
-                                    }
-                                }}
-                            />
-            </div>
+                        {IsAdmin &&
+                            <div className={styles.select}>
+                                <label>Assign To</label>
+                                <Select
+                                    className={styles.inputbox2}
+                                    value={options.find(
+                                        (option) => option.value === formData.assignedTo
+                                    )}
+                                    options={options}
+                                    components={{ Option: customOption }}
+                                    placeholder="Add an Assignee"
+                                    onChange={(selectedOption) => {
+                                        setFormData({ ...formData, assignedTo: selectedOption.value });
+                                        if (errors.assignedTo) {
+                                            setErrors({ ...errors, assignedTo: "" });
+                                        }
+                                    }}
+                                />
+                            </div>}
                         <div className={styles.checkls}>
                             <label>Checklist ({(formData.checklistItems).filter(item => item.isChecked).length}/{(formData.checklistItems).length})<span className={styles.required}>*</span></label>
                             <div className={styles.checklist}>

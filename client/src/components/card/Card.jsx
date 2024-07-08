@@ -13,7 +13,7 @@ import { FormatDate2, FormatDate3 } from '../FormatDate';
 import {updateTaskDetailsById,updateCategoryById} from '../../apis/TaskApi';
 
 function Card(props) {
-  const { id,title, priority , category, checklistItems ,assignedTo,dueDate, collapsed,userData,refresh}=props;
+  const { id, title, priority, category, checklistItems, assignedTo, dueDate, collapsed, userData, refUserId, userId, refresh } = props;
   const [expanded, setExpanded] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [dropdownVisible, setDropdownVisible] = useState(false);
@@ -186,6 +186,8 @@ function Card(props) {
         dueDate={dueDate}
         checklistItems={checklistItems}
         category={category}
+        refUserId={refUserId}
+        userId={userId}
         editable={true}
         userData={userData.registeredEmail || []}
         refresh={refresh}
