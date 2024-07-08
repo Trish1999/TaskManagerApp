@@ -15,20 +15,18 @@ import "../../modals/Custom-styling.css";
 import Delete from "../../assets/Delete.svg"
 
 function AddTaskModal(props) {
-    const { close, open, userData, refresh, editable,taskId, title, editClose, editOpen, category, priority, checklistItems, assignedTo, dueDate } = props;
-    console.log(props)
+    const { close, open, userData, refresh, editable, taskId, title, editClose, editOpen, category, priority, checklistItems, assignedTo, dueDate } = props;
     const [formData, setFormData] = useState({
         title: editable ? title :"",
         priority: editable ? priority :"",
         category: editable ? category :"todo",
         assignedTo: editable ? assignedTo :"",
-        dueDate:editable ? new Date(dueDate) : null,
+        dueDate: editable ? dueDate : "",
         checklistItems: editable ? checklistItems :[],
         
     });
     const [errors, setErrors] = useState({});
-       const [idCounter, setIdCounter]  = useState(checklistItems ? checklistItems.length + 1 : 1);
-    console.log({ formData },"d");
+    const [idCounter, setIdCounter] = useState(checklistItems ? checklistItems.length + 1 : 1);
 
     const handleFormChange = (e) => {
         const { name, value } = e.target;
@@ -107,7 +105,6 @@ function AddTaskModal(props) {
                 }
             } else {
                 const result = await createTask(formData);
-                console.log(result)
                 if (result) {
                     toast.success("Successfully added task");
                     close();

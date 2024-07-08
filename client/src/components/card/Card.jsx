@@ -30,6 +30,11 @@ function Card(props) {
   const toggleDropdown = () => {
     setDropdownVisible(!dropdownVisible);
   };
+
+  const closeDropdown = () => {
+    setDropdownVisible(false);
+  };
+
   const updateCategory = async (taskId, category) => {
     const payload = {
       category: category
@@ -37,7 +42,7 @@ function Card(props) {
     const result = await updateCategoryById(taskId, payload);
     if (result) {
        toast.success("category updated");
-      window.location.reload();
+      refresh();
     }
 
   }
@@ -89,9 +94,9 @@ function Card(props) {
           <img src={OptionIcon} alt="Options" className={styles.optionIcon}  onClick={toggleDropdown}/>
          {dropdownVisible && (
             <div className={styles.dropdown}>
-              <a onClick={()=>setShowEditModal(true)}>Edit</a>
-                <a onClick={()=>generateLink(id)} >Share</a>
-              <a onClick={() => setShowDeleteModal(true)} style={{color:"red"}}>Delete</a>
+              <a onClick={() => { setShowEditModal(true); closeDropdown(); }}>Edit</a>
+              <a onClick={() => { generateLink(id); closeDropdown(); }}>Share</a>
+              <a onClick={() => { setShowDeleteModal(true); closeDropdown(); }} style={{ color: "red" }}>Delete</a>
             </div>
         )}
         </div>
@@ -167,6 +172,7 @@ function Card(props) {
         open={() => setShowDeleteModal(true)}
         close={() => setShowDeleteModal(false)}
         taskId={id}
+        refresh={refresh}
         />
       }
         {showEditModal &&

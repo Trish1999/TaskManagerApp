@@ -9,7 +9,7 @@ import styles from "../addEmailModal/AddEmailModal.module.css"
 toast.configure;
 
 function ConfermationModal(props) {
-    const { close, open,email,close1,userData} = props;
+  const { close, open, email, close1, userData, refresh } = props;
       
   const handleSubmit = async () => {
     const adminEmail = localStorage.getItem("email");
@@ -39,7 +39,7 @@ function ConfermationModal(props) {
         onClose: () => {
           close();
             close1();
-            window.location.reload();
+            refresh();
         },
       });
       }

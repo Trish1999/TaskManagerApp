@@ -9,7 +9,7 @@ import "../../modals/Custom-styling.css";
 import { deleteTask } from '../../apis/TaskApi';
 
 function DeleteModal(props) {
-    const { close, open ,taskId} = props;
+  const { close, open, taskId, refresh } = props;
 
   const handleDelete = async(taskId) => {
     const result = await deleteTask(taskId);
@@ -18,7 +18,7 @@ function DeleteModal(props) {
       toast.info("Task deleted successfully",{
          onClose: () => {
           close();
-          window.location.reload();
+          refresh();
 
         },
       })

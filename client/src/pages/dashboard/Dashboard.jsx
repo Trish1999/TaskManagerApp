@@ -13,7 +13,7 @@ import Card from '../../components/card/Card';
 import AddTaskModal from '../../modals/addTaskModal/AddTaskModal';
 import Option from '../../assets/Group 544.svg'
 import AddEmailModal from '../../modals/addEmailModal/AddEmailModal';
-import { getTaskDetailsById, getAllTasks } from '../../apis/TaskApi';
+import { getAssignedTask, getAllTasks } from '../../apis/TaskApi';
 import { getUserDetailsById } from '../../apis/UserApi';
 import { isToday, isThisWeek, isThisMonth, parseISO, subWeeks, subMonths, format } from 'date-fns';
 
@@ -22,7 +22,8 @@ function Dashboard() {
   const [showTaskModal, setShowTaskModal] = useState(false);
   const [showAddEmailModal, setShowAddEmailModal] = useState(false);
   const [tasks, setTasks] = useState([]);
-  const[userData,setUserData]=useState({})
+  const [userData, setUserData] = useState({});
+  const [assignedData, setAssignedData] = useState([]);
   
   const [collapsedStates, setCollapsedStates] = useState({
       backlog: true,
@@ -33,11 +34,16 @@ function Dashboard() {
 
   const date = new Date();
   const userName = userData.name;
+  const userEmail = userData.email;
   const userId = localStorage.getItem("userId");
 
   useEffect(() => {
     fetchAllTasks();
   }, []);
+
+  useEffect(() => {
+    fetchAssignedTask();
+  }, [userEmail]);
 
     useEffect(() => {
     fetchUserData();
@@ -50,6 +56,13 @@ function Dashboard() {
     }
     setTasks(result?.data || 0);
   };
+
+  const fetchAssignedTask = async () => {
+    const result = await getAssignedTask(userEmail);
+    setAssignedData(result?.data || 0)
+  };
+
+  let Data = [...tasks, ...assignedData]
 
   const fetchUserData = async () => {
     const result = await getUserDetailsById(userId);
@@ -64,9 +77,9 @@ function Dashboard() {
     }));
   };
 
-  const filterTasks = (tasks, filter) => {
+  const filterTasks = (Data, filter) => {
     const today = new Date();
-    return tasks.filter(task => {
+    return Data.filter(task => {
       const createdAt = parseISO(task.createdAt);
       if (filter === 'today') {
         return isToday(createdAt);
@@ -81,7 +94,7 @@ function Dashboard() {
   };
 
 
-  const filteredTasks = Array.isArray(tasks) ? filterTasks(tasks, filter) : [];
+  const filteredTasks = Array.isArray(Data) ? filterTasks(Data, filter) : [];
 
 
   const backlogCards = filteredTasks.filter(task => task.category === "backlog")
@@ -195,6 +208,7 @@ return (
         close={() => setShowAddEmailModal(false)}
         open={() => setShowAddEmailModal(true)}
         userData={userData.registeredEmail || []}
+        refresh={fetchAllTasks}
       />
     )}
 

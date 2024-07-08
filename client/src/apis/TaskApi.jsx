@@ -23,8 +23,17 @@ export const getTaskDetailsById = async (taskId) => {
     try {
         const reqUrl = `${backendUrl}/task-details/${taskId}`;
         const response = await axios.get(reqUrl);
-    console.log(response)
-        
+
+        return response.data;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const getAssignedTask = async (email) => {
+    try {
+        const reqUrl = `${backendUrl}/task-assigned/${email}`;
+        const response = await axios.get(reqUrl);
         return response.data;
     } catch (error) {
         console.log(error);
@@ -88,6 +97,6 @@ export const getAllTasks = async () => {
         return response.data;
     } catch (error) {
         console.log(error);
-        
+        return error.response.data.errorMessage;
     }
 };

@@ -58,7 +58,6 @@ function Settings() {
     const nameUpdated = isFieldUpdated(originalName, updatedName);
     const emailUpdated = isFieldUpdated(originalEmail, updatedEmail);
     const passwordUpdated = !!oldPassword || !!newPassword;
-    console.log(nameUpdated, emailUpdated, passwordUpdated);
 
     const updatedFieldsCount = [nameUpdated, emailUpdated, passwordUpdated].filter(Boolean).length;
 

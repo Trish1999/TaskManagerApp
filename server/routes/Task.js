@@ -7,6 +7,7 @@ const verifyToken = require("../middleware/verifyToken");
 router.post("/create", verifyToken, TaskController.createTask);
 router.delete("/delete/:taskId", verifyToken, TaskController.deleteTask);
 router.get("/task-details/:taskId", TaskController.getTaskDetailsById);
+router.get("/task-assigned/:email", TaskController.getAssignedTask);
 router.put("/update/:taskId", TaskController.updateTaskDetailsById);
 router.put("/update/category/:taskId", TaskController.updateCategoryById);
 router.put("/update/assignee/:taskId", TaskController.updateAssignee);
