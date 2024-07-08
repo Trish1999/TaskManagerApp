@@ -2,29 +2,42 @@ import React, { useState,useEffect} from 'react'
 
 import styles from "../analytics/AnalyticPage.module.css"
 import Navbar from '../../components/navbar/Navbar'
-import { getAllTasks } from '../../apis/TaskApi';
+import { getAssignedTask, getAllTasks } from '../../apis/TaskApi';
 
 function AnalyticsPage() {
     const [tasks, setTasks] = useState([]);
-    
-    
-        useEffect(() => {
+    const [assignedData, setAssignedData] = useState([]);
+
+    const userEmail = localStorage.getItem("email");
+
+    useEffect(() => {
         fetchAllTasks();
-     }, []);
-        
-       const fetchAllTasks = async () => {
-       const result = await getAllTasks();
-        setTasks(result?.data || 0)
+    }, []);
+
+    useEffect(() => {
+        fetchAssignedTask();
+    }, [userEmail]);
+
+    const fetchAllTasks = async () => {
+        const result = await getAllTasks();
+        setTasks(result?.data || 0);
     };
-    
-    const backlogTasks = tasks.filter(task => task.category === "backlog")
-    const todoTasks = tasks.filter(task => task.category === "todo")
-    const inProgressTasks = tasks.filter(task => task.category === "inProgress")
-     const completedTasks = tasks.filter(task => task.category === "done")
-    const lowPriorityTasks = tasks.filter(task => task.priority === "low")
-    const highPriorityTasks = tasks.filter(task => task.priority === "high")
-    const moderatePriorityTasks = tasks.filter(task => task.priority === "moderate")
-    const dueDateTasks = tasks.filter(task => task.dueDate)
+
+    const fetchAssignedTask = async () => {
+        const result = await getAssignedTask(userEmail);
+        setAssignedData(result?.data || 0)
+    };
+
+    let Data = [...tasks, ...assignedData]
+
+    const backlogTasks = Data.filter(task => task.category === "backlog")
+    const todoTasks = Data.filter(task => task.category === "todo")
+    const inProgressTasks = Data.filter(task => task.category === "inProgress")
+    const completedTasks = Data.filter(task => task.category === "done")
+    const lowPriorityTasks = Data.filter(task => task.priority === "low")
+    const highPriorityTasks = Data.filter(task => task.priority === "high")
+    const moderatePriorityTasks = Data.filter(task => task.priority === "moderate")
+    const dueDateTasks = Data.filter(task => task.dueDate)
 
 
   return (
