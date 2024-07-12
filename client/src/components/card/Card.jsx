@@ -41,8 +41,11 @@ function Card(props) {
     }
     const result = await updateCategoryById(taskId, payload);
     if (result) {
-       toast.success("category updated");
-      refresh();
+      toast.success("category updated", {
+        onClose: () => {
+          refresh();
+        }
+      });
     }
 
   }
