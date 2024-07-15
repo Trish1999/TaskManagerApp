@@ -212,6 +212,7 @@ return (
         open={() => setShowAddEmailModal(true)}
         userData={userData.registeredEmail || []}
         refresh={fetchAllTasks}
+        refresh1={fetchUserData}
       />
     )}
 

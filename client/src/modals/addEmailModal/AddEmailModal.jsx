@@ -8,7 +8,7 @@ import styles from "../addEmailModal/AddEmailModal.module.css"
 import ConfermationModal from './ConfermationModal';
 
 function AddEmailModal(props) {
-  const { close, open, userData, refresh } = props;
+  const { close, open, userData, refresh, refresh1 } = props;
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [showConfermationModal, setShowConfermationModal] = useState(false)
@@ -72,6 +72,7 @@ function AddEmailModal(props) {
         close1={close}
         userData={userData}
         refresh={refresh}
+        refresh1={refresh1}
         />
       }
     </div>
