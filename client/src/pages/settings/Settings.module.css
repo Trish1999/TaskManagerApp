@@ -1,10 +1,12 @@
 .mains {
     display: flex;
+    width:100vw;
 }
 
 .container {
     margin-top: 0.3rem;
     margin-left: 2rem;
+    width: 84vw;
 }
 .mainContainer {
     display: flex;
@@ -70,4 +72,18 @@
 .update:hover {
     background-color: #127787d4;
     color: black
+}
+
+@media (max-width: 768px) {
+.container {
+    width:100vw;
+    height: fit-content;
+}
+.mainContainer{
+    padding: 0.5rem;
+}
+.nav{
+    position: fixed;
+    z-index: 5;
+}
 }

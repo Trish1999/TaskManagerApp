@@ -129,3 +129,118 @@
     line-height: 3px;
 
 }
+
+@media (max-width: 768px) {
+    .mainContainer {
+        flex-direction: column;
+    }
+
+    .leftContainer {
+        width: 100vw;
+        height: auto;
+        padding: 2rem 1rem;
+    }
+
+    .imageContainer {
+        flex-direction: column;
+    }
+
+    .logoBack {
+        width: 10rem;
+        margin-bottom: 5rem;
+    }
+
+    .logo {
+        width: 15rem;
+        margin-bottom: 3rem;
+    }
+
+    .text {
+        margin-top: 10rem;
+        font-size: 1.2rem;
+        line-height: 1.2;
+    }
+
+    .rightContainer {
+        width: 100vw;
+        padding: 1rem;
+    }
+
+    .inputContainer {
+        width: 90%;
+        margin: 1rem auto;
+        padding-left: 4%;
+    }
+
+    .inputbox {
+        width: 85%;
+        font-size: 1rem;
+    }
+
+    .icon, .viewIcon {
+        width: 20px;
+        height: 25px;
+    }
+
+    .register,
+    .login {
+        width: 90%;
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+
+    .register {
+        margin: 1rem auto;
+    }
+
+    .login {
+        margin: 1rem auto;
+    }
+
+    .error {
+        font-size: smaller;
+        text-align: center;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 1024px) and (min-width: 768px) {
+    .mainContainer {
+        flex-direction: column; /* Stack containers vertically for better spacing */
+    }
+
+    .leftContainer {
+        width: 100vw; /* Adjust width to take full width of the screen */
+        height: 50vh; /* Reduce height to half the screen height */
+    }
+
+    .text {
+        margin-top: 10rem; /* Adjust spacing for text */
+        line-height: 1.2; /* Ensure proper text spacing */
+    }
+
+    .logo {
+        width: 20rem; /* Scale down the logo */
+        margin-bottom: 6rem;
+    }
+
+    .logoBack {
+        width: 10rem; /* Adjust background logo size */
+        margin-bottom: 6rem;
+    }
+
+    .rightContainer {
+        width: 100vw; /* Full width for the container */
+        height: auto; /* Adjust height dynamically */
+        padding: 2rem; /* Add some padding for spacing */
+    }
+
+    .inputContainer {
+        width: 25rem; /* Reduce the width of the input container */
+    }
+
+    .register,
+    .login {
+        width: 25rem; /* Adjust button widths */
+    }
+}

@@ -42,7 +42,9 @@ function AnalyticsPage() {
 
   return (
       <div className={styles.mains}>
-          <Navbar/>
+          <div className={styles.nav}>
+              <Navbar />
+          </div>
           <div className={styles.container}>
               <h3>Analytics</h3>
                <div className={styles.boxes}>

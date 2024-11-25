@@ -5,6 +5,7 @@
     justify-content: space-between;
     flex-direction: row;
     margin-top: 1.5rem;
+    gap:2rem;
 }
 
 .add ,.ok{
@@ -52,3 +53,4 @@
     border: 1px solid #767575;
     outline: none;
 }
+

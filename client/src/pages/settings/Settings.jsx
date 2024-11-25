@@ -108,7 +108,9 @@ function Settings() {
     <div>
       <div className={styles.mains}>
         <ToastContainer position="top-right" autoClose={1000} />
+        <div className={styles.nav}>
         <Navbar />
+        </div>
         <div className={styles.container}>
           <h3>Settings</h3>
           <form style={{ marginTop: '3rem' }} onSubmit={handleSubmit}>

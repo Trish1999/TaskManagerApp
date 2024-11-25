@@ -22,3 +22,23 @@
     width:30vw;
     height: 25vh;
 }
+
+@media (max-width: 768px) {
+    .customModal1 {
+        width: 80vw; /* Increase width for mobile */
+        height: auto; /* Let the height adjust automatically */
+        padding: 1rem; /* Reduce padding for better fit */
+    }
+
+    .customModal2 {
+        width: 80vw; /* Increase width for mobile */
+        height: auto; /* Let the height adjust automatically */
+        padding: 1rem; /* Reduce padding for better fit */
+    }
+
+    .customModal3 {
+        width: 80vw; /* Increase width for mobile */
+        height: auto; /* Let the height adjust automatically */
+        padding: 1rem; /* Reduce padding for better fit */
+    }
+}

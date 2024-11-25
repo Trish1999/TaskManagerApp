@@ -124,3 +124,29 @@
     overflow-y: scroll;
 }
 
+@media (max-width: 768px) {
+.container {
+    width:100vw;
+    height: fit-content;
+    margin: 0.5rem;
+}
+.nav{
+    position: fixed;
+    z-index: 5;
+}
+.top{
+    margin-left:1rem;
+}
+.filter{
+    position: fixed;
+    right:20px;
+
+}
+.date{
+    position:fixed;
+    right:1rem;
+    margin-left:0;
+    font-size: x-small;
+}
+
+}

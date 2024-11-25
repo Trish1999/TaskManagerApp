@@ -120,7 +120,7 @@ return (
       autoClose={500}
     />
     <div className={styles.mains}>
-      <div>
+      <div className={styles.nav}>
         <Navbar />
       </div>
       <div className={styles.container}>

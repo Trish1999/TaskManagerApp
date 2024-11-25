@@ -251,3 +251,16 @@ select:invalid {
     }
 
 
+@media (max-width: 768px) {
+.footerbtn1,
+.footerbtn2,
+.footerbtn3{
+    width:6rem;
+}
+.footer {
+    gap:1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+}

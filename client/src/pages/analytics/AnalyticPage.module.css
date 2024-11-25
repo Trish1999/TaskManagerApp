@@ -1,5 +1,6 @@
 .mains{
     display: flex;
+    width:100vw;
 }
 .container{
     margin-top: 0.3rem;
@@ -11,7 +12,7 @@
 }
 .box{
     width:20rem;
-    height:11rem;
+    height:fit-content;
     background-color: #F9FCFF;
     padding:0em 2em 1em 1em;
     border-radius: 0.7rem;
@@ -37,4 +38,15 @@
 
 .number{
     font-weight: 600;
+}
+
+@media (max-width: 768px) {
+.container {
+    width:100vw;
+    height: fit-content;
+    margin: 0.5rem;
+}
+.nav{
+    position: fixed;
+}
 }
